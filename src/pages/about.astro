@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 
 const pageTitle = "About Me";
 
@@ -20,9 +22,7 @@ const identity = {
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-        <a href="/portfolio-astro/">Home</a>
-        <a href="/portfolio-astro/about/">About</a>
-        <a href="/portfolio-astro/work/">Work</a>
+        <Navigation />
 
 		<h1>{pageTitle}</h1>
         <h2>whoami:</h2>
@@ -31,5 +31,6 @@ const identity = {
             <li>My interests include {identity.interests.join(", ")}.</li>
         </ul>
 
+		<Footer />
 	</body>
 </html>

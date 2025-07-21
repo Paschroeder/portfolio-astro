@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
 const pageTitle = "Path of working";
 
 const skills = [
@@ -23,9 +26,7 @@ const textCase = "uppercase";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-        <a href="/portfolio-astro/">Home</a>
-        <a href="/portfolio-astro/about/">About</a>
-		<a href="/portfolio-astro/work/">Work</a>
+        <Header />
 
 		<h1>{pageTitle}</h1>
         <style define:vars={{skillColor, fontWeight, textCase}}>
@@ -50,5 +51,6 @@ const textCase = "uppercase";
 		</ul>
 
         <p>patrick.nixon --list-preferences:</p>
+		<Footer />
 	</body>
 </html>

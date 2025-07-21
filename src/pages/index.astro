@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 const pageTitle = "Portfolio Patrick Schröder";
 ---
 
@@ -12,10 +15,9 @@ const pageTitle = "Portfolio Patrick Schröder";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<a href="/portfolio-astro/">Home</a>
-        <a href="/portfolio-astro/about/">About</a>
-		<a href="/portfolio-astro/work/">Work</a>
+		<Header />
 
 		<h1>{pageTitle}</h1>
+		<Footer />
 	</body>
 </html>
