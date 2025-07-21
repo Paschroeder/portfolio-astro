@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+
+const pageTitle = "About Me";
+
+const identity = {
+    name: "Patrick Schröder",
+    age: 36,
+    country: "Germany",
+    interests: ["coding", "photography", "traveling"],
+}
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/work/">Work</a>
+
+		<h1>{pageTitle}</h1>
+        <h2>whoami:</h2>
+        <ul>
+            <li>My name is {identity.name}, I am {identity.age} years old and I live in {identity.country}.</li>
+            <li>My interests include {identity.interests.join(", ")}.</li>
+        </ul>
+
+	</body>
+</html>
