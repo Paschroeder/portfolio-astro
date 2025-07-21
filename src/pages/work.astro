@@ -1,15 +1,15 @@
 ---
-import '../styles/global.css';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
 const pageTitle = "Path of working";
 
 const skills = [
-    { name: "JavaScript", level: "Advanced" },
-    { name: "Astro", level: "Intermediate" },
-    { name: "HTML & CSS", level: "Advanced" },
-    { name: "Node.js", level: "Intermediate" },
+	{ name: "JavaScript", level: "Advanced" },
+	{ name: "Astro", level: "Intermediate" },
+	{ name: "HTML & CSS", level: "Advanced" },
+	{ name: "Node.js", level: "Intermediate" },
 ];
 
 const skillColor = "green";
@@ -26,31 +26,49 @@ const textCase = "uppercase";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-        <Header />
+		<Header />
 
 		<h1>{pageTitle}</h1>
-        <style define:vars={{skillColor, fontWeight, textCase}}>
+		<style define:vars={{ skillColor, fontWeight, textCase }}>
 			.skill {
 				color: var(--skillColor);
 				font-weight: var(--fontWeight);
-    			text-transform: var(--textCase);
+				text-transform: var(--textCase);
 			}
 		</style>
-		
+
 		<p>patrick.nixon --version</p>
 
 		<ul>
-			{skills.map((skill) => <li class="skill">{skill.name} - {skill.level}</li>)}
+			{
+				skills.map((skill) => (
+					<li class="skill">
+						{skill.name} - {skill.level}
+					</li>
+				))
+			}
 		</ul>
 
-        <p>patrick.nixon --list-projects:</p>
+		<p>patrick.nixon --list-projects:</p>
 		<ul>
-			<li><a href="/portfolio-astro/work/projects/project-1/">My First Project</a></li>
-			<li><a href="/portfolio-astro/work/projects/project-2/">My Second Project</a></li>
-			<li><a href="/portfolio-astro/work/projects/project-3/">My Third Project</a></li>
+			<li>
+				<a href="/portfolio-astro/work/projects/project-1/"
+					>My First Project</a>
+			</li>
+			<li>
+				<a href="/portfolio-astro/work/projects/project-2/"
+					>My Second Project</a>
+			</li>
+			<li>
+				<a href="/portfolio-astro/work/projects/project-3/"
+					>My Third Project</a>
+			</li>
 		</ul>
 
-        <p>patrick.nixon --list-preferences:</p>
+		<p>patrick.nixon --list-preferences:</p>
 		<Footer />
+		<script>
+			import "../scripts/menu.js";
+		</script>
 	</body>
 </html>
