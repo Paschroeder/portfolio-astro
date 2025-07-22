@@ -1,0 +1,81 @@
+---
+// ProfilePicture.astro
+import { Image } from "astro:assets";
+import pixelArtImg from "../assets/profile-pixel-art.png";
+import originalImg from "../assets/profile-original.png";
+---
+
+<div class="profile-picture" id="profilePicture">
+    <Image
+        src={pixelArtImg}
+        alt="Profile Picture"
+        class="profile-img active"
+        id="pixelImg"
+        width={200}
+        height={200}
+    />
+    <Image
+        src={originalImg}
+        alt="Profile Picture"
+        class="profile-img"
+        id="originalImg"
+        width={200}
+        height={200}
+    />
+</div>
+
+<style>
+    .profile-picture {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        cursor: pointer;
+    }
+
+    .profile-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 25%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .profile-img.active {
+        opacity: 1;
+    }
+</style>
+
+<script>
+    const profilePicture = document.getElementById("profilePicture");
+    const pixelImg = document.getElementById("pixelImg");
+    const originalImg = document.getElementById("originalImg");
+
+    let isOriginal = false;
+
+    function toggleImages(showOriginal: boolean) {
+        if (showOriginal) {
+            pixelImg?.classList.remove("active");
+            originalImg?.classList.add("active");
+        } else {
+            originalImg?.classList.remove("active");
+            pixelImg?.classList.add("active");
+        }
+    }
+
+    profilePicture?.addEventListener("mouseenter", () => {
+        if (!isOriginal) toggleImages(true);
+    });
+
+    profilePicture?.addEventListener("mouseleave", () => {
+        if (!isOriginal) toggleImages(false);
+    });
+
+    profilePicture?.addEventListener("click", () => {
+        isOriginal = !isOriginal;
+        toggleImages(isOriginal);
+    });
+</script>
